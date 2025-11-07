@@ -77,10 +77,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-                  &kp Q           &kp W           &kp E               &kp R             &kp T        &kp Y        &kp U              &kp I            &kp O            &kp P
-                  &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LEFT_CONTROL D  &mt LEFT_SHIFT F  &kp G        &kp H        &mt RIGHT_SHIFT J  &mt RIGHT_ALT K  &mt RIGHT_ALT L  &mt LEFT_GUI APOS
-&kp LEFT_COMMAND  &kp Z           &kp X           &kp C               &kp V             &kp B        &kp N        &kp M              &kp COMMA        &kp DOT          &kp FSLH           &kp RIGHT_GUI
-                                                  &lt 5 ESCAPE        &lt 1 SPACE       &lt 6 TAB    &lt SYM RET  &kp BSPC           &kp DELETE
+                  &kp Q           &kp W           &kp E               &kp R             &kp T        &kp Y      &kp U              &kp I            &kp O            &kp P
+                  &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LEFT_CONTROL D  &mt LEFT_SHIFT F  &kp G        &kp H      &mt RIGHT_SHIFT J  &mt RIGHT_ALT K  &mt RIGHT_ALT L  &mt LEFT_GUI APOS
+&kp LEFT_COMMAND  &kp Z           &kp X           &kp C               &kp V             &kp B        &kp N      &kp M              &kp COMMA        &kp DOT          &kp FSLH           &kp RIGHT_GUI
+                                                  &lt 5 ESCAPE        &lt 1 SPACE       &lt 6 TAB    &lt 4 RET  &lt 2 BACKSPACE    &kp DELETE
             >;
         };
 
@@ -129,10 +129,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-        &kp EXCL     &kp AT       &kp HASH   &kp DLLR  &kp PRCNT    &kp CARET     &kp AMPS        &kp RA(U)   &kp SQT     &kp DQT
-        &kp RA(A)    &trans       &kp RA(S)  &trans    &trans       &kp C_MUTE    &kp LS(RA(N4))  &kp RA(N5)  &kp RA(N4)  &kp RA(O)
-&trans  &kp RA(F18)  &kp RA(F19)  &trans     &trans    &trans       &kp C_VOL_DN  &kp C_VOL_UP    &kp C_PREV  &kp C_NEXT  &kp BSLH   &trans
-                                  &trans     &gif      &mo ADJ      &trans        &kp C_PP        &trans
+        &kp LBKT   &kp N7  &kp N8   &kp N9  &kp RBKT     &none  &none      &none      &none     &none
+        &kp SEMI   &kp N4  &kp N5   &kp N6  &kp EQUAL    &none  &kp RSHFT  &kp LCTRL  &kp RALT  &kp RGUI
+&trans  &kp GRAVE  &kp N1  &kp N2   &kp N3  &kp BSLH     &none  &none      &none      &none     &none     &trans
+                           &kp DOT  &kp N0  &kp MINUS    &none  &none      &none
             >;
         };
 
@@ -164,19 +164,19 @@
 
         sym {
             bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+       &kp LS(LBRC)   &kp LS(AMPS)  &kp LS(STAR)   &kp LS(LPAR)   &kp LS(RBRC)     &none  &none      &none      &none     &none
+       &kp LS(COLON)  &kp LS(DLLR)  &kp LS(PRCNT)  &kp LS(CARET)  &kp LS(PLUS)     &none  &kp RSHFT  &kp LCTRL  &kp RALT  &kp RGUI
+&none  &kp LS(TILDE)  &kp LS(EXCL)  &kp LS(AT)     &kp LS(POUND)  &kp LS(PIPE)     &none  &none      &none      &none     &none     &none
+                                    &kp LS(LPAR)   &kp LS(RPAR)   &kp LS(UNDER)    &none  &none      &none
             >;
         };
 
         media {
             bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+             &none     &none     &none      &none      &none    &none         &none             &none            &none         &none
+             &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none    &kp K_PREV    &kp C_VOL_DN      &kp C_VOLUME_UP  &kp C_NEXT    &none
+&bootloader  &none     &none     &none      &none      &none    &bt BT_SEL 0  &bt BT_SEL 1      &bt BT_SEL 2     &bt BT_SEL 3  &bt BT_CLR_ALL  &bootloader
+                                 &none      &none      &none    &kp C_STOP    &kp K_PLAY_PAUSE  &kp K_MUTE
             >;
         };
 
