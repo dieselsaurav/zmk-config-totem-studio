@@ -36,6 +36,41 @@
             key-positions = <0 1>;
             bindings = <&kp ESC>;
         };
+
+        caps {
+            bindings = <&caps_word>;
+            key-positions = <13 16>;
+        };
+
+        left_paran {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <2 3>;
+        };
+
+        right_paran {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <7 8>;
+        };
+
+        left_brace {
+            bindings = <&kp LEFT_BRACE>;
+            key-positions = <1 2>;
+        };
+
+        right_brace {
+            bindings = <&kp RIGHT_BRACE>;
+            key-positions = <7 8>;
+        };
+
+        left_brackets {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <0 1>;
+        };
+
+        right_brackets {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <8 9>;
+        };
     };
 
     macros {
