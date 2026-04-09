@@ -18,7 +18,7 @@
 //   Layer 3: MEDIA   — media, BT (hold ESC)
 //   Layer 4: SYM     — symbols left hand (hold ENTER)
 //   Layer 5: FUN     — function keys left hand (hold DEL)
-//   Layer 6: MOUSE   — placeholder (hold TAB)
+//   Layer 6: MOUSE   — mouse movement, scroll, buttons (hold TAB)
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -177,11 +177,11 @@
             //             ┃     Q     ┃     W     ┃     E     ┃     R     ┃     T     ┃   ┃     Y     ┃     U     ┃     I     ┃     O     ┃     P     ┃
             //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
             //             ┃  GUI/A    ┃  ALT/S    ┃  CTRL/D   ┃  SHFT/F   ┃     G     ┃   ┃     H     ┃  SHFT/J   ┃  CTRL/K   ┃  ALT/L    ┃  GUI/'    ┃
-            // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-            // ┃ CTRL/ESC  ┃     Z     ┃     X     ┃     C     ┃     V     ┃     B     ┃   ┃     N     ┃     M     ┃     ,     ┃     .     ┃     /     ┃   HYPER   ┃
-            // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-            //                                     ┃ MEDIA/ESC ┃  NAV/SPC  ┃ MOUSE/TAB ┃   ┃  SYM/ENT  ┃ NUM/BSPC  ┃  FUN/DEL  ┃
-            //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+            //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
+            //             ┃     Z     ┃     X     ┃     C     ┃     V     ┃     B     ┃   ┃     N     ┃     M     ┃     ,     ┃     .     ┃     /     ┃
+            // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┛
+            // ┃ CTRL/ESC  ┃ MEDIA/ESC ┃  NAV/SPC  ┃ MOUSE/TAB ┃           ┃           ┃   ┃  SYM/ENT  ┃ NUM/BSPC  ┃  FUN/DEL  ┃   HYPER   ┃
+            // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛                           ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
             bindings = <
                 &kp Q       &kp W       &kp E         &kp R         &kp T           &kp Y       &kp U         &kp I         &kp O        &kp P
                 &mt LGUI A  &mt LALT S  &mt LCTRL D   &mt LSHFT F   &kp G           &kp H       &mt RSHFT J   &mt RCTRL K   &mt RALT L   &mt RGUI SQT
@@ -197,7 +197,7 @@
             // Right hand: vim arrows (HJKL), clipboard, nav
             // Left hand: home row mods (transparent for hold layer)
             bindings = <
-                &none       &none       &none         &none         &none           &kp K_REDO  &kp K_PASTE   &kp K_COPY    &kp K_CUT    &kp K_UNDO
+                &none       &none       &none         &none         &none           &kp LG(LS(Z)) &kp LG(V)  &kp LG(C)     &kp LG(X)    &kp LG(Z)
                 &kp LGUI    &kp LALT    &kp LCTRL     &kp LSHFT     &none           &kp LEFT    &kp DOWN      &kp UP        &kp RIGHT    &kp CAPS
                 &none       &none       &none         &none         &none           &kp INS     &kp HOME      &kp PG_DN     &kp PG_UP    &kp END
   &mt LCTRL ESC &none         &none         &none                               &kp RET     &kp BSPC      &kp DEL               &hyper

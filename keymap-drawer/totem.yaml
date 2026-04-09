@@ -45,11 +45,11 @@ layers:
   - ''
   - ''
   - ''
-  - REDO
-  - PASTE
-  - COPY
-  - CUT
-  - UNDO
+  - Gui+Sft+Z
+  - Gui+V
+  - Gui+C
+  - Gui+X
+  - Gui+Z
   - LGUI
   - LALT
   - LCTRL
