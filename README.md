@@ -1,69 +1,119 @@
-# TOTEM ZMK Config
+# TOTEM — ZMK Firmware Config
 
-ZMK firmware configuration for the [TOTEM](https://github.com/GEIGEIGEIST/TOTEM) split keyboard with [ZMK Studio](https://zmk.studio/) support.
+[![Build ZMK firmware](../../actions/workflows/build.yml/badge.svg)](../../actions/workflows/build.yml)
 
-## Hardware
+> Miryoku-inspired ZMK configuration for the [TOTEM](https://github.com/GEIGEIGEIST/TOTEM) 38-key split keyboard, with [ZMK Studio](https://zmk.studio/) support for real-time keymap editing.
 
-| Component | Detail |
-|-----------|--------|
-| Board | Seeeduino XIAO BLE (nRF52840) |
-| Shield | TOTEM (38-key split) |
-| Firmware | ZMK (main branch, Zephyr 4.1) |
-| Studio | Enabled on left half |
+---
 
-## Layout
-
-Miryoku-style layout with QWERTY base and vim-style navigation.
-
-### Base Layer (QWERTY + Home Row Mods)
-
-```
-     Q       W       E       R       T          Y       U       I       O       P
-     GUI/A   ALT/S   CTRL/D  SHFT/F  G          H       SHFT/J  CTRL/K  ALT/L   GUI/'
-     Z       X       C       V       B          N       M       ,       .       /
-                    MEDIA/ESC NAV/SPC MOUSE/TAB  SYM/ENT NUM/BSPC FUN/DEL
-```
-
-### Keymap Diagram
+## Keymap
 
 ![Keymap](keymap-drawer/totem.svg)
 
-## Layers
+*Auto-generated with [keymap-drawer](https://github.com/caksoylar/keymap-drawer) on every push.*
 
-| Layer | Thumb Key | Left Hand | Right Hand |
-|-------|-----------|-----------|------------|
-| **BASE** | — | QWERTY | QWERTY |
-| **NAV** | Hold Space | Home row mods | Vim arrows (HJKL), clipboard, nav |
-| **NUM** | Hold Backspace | Numpad ([ 7 8 9 ], ; 4 5 6 =, ` 1 2 3 \) | Home row mods |
-| **MEDIA** | Hold Escape | Home row mods | Media controls, BT profiles |
-| **SYM** | Hold Enter | Symbols ({ & * ( }, : $ % ^ +, ~ ! @ # \|) | Home row mods |
-| **FUN** | Hold Delete | Function keys (F1-F12), PrtSc, ScrLk | Home row mods |
-| **MOUSE** | Hold Tab | Home row mods | Mouse movement, scroll, buttons (L/M/R click) |
+---
 
-## Home Row Mods (GACS)
+## Layout Philosophy
 
-| Finger | Left | Right |
-|--------|------|-------|
-| Pinky | GUI | GUI |
-| Ring | ALT | ALT |
-| Middle | CTRL | CTRL |
-| Index | SHIFT | SHIFT |
+This config follows the [Miryoku](https://github.com/manna-harbour/miryoku) layout system — a minimal 36-key layout that puts everything within one key of the home row.
 
-Settings: tap-preferred, 200ms tapping term, 175ms quick-tap, 150ms require-prior-idle.
+- **QWERTY** base with **home row mods** (GACS order)
+- **Vim-style** navigation (HJKL arrows)
+- **6 thumb-activated layers** — no combos, no chords, just hold a thumb key
+- **Symmetric design** — left thumbs activate right-hand layers and vice versa
 
-## Building
+### Thumb Keys
 
-Firmware builds automatically via GitHub Actions on every push. Download the `.uf2` files from the [Actions](../../actions) tab.
+```
+Left hand                          Right hand
+┌───────────┬───────────┬────────┐ ┌─────────┬──────────┬─────────┐
+│ MEDIA/ESC │  NAV/SPC  │MOUSE/TAB│ │ SYM/ENT │ NUM/BSPC │ FUN/DEL │
+└───────────┴───────────┴────────┘ └─────────┴──────────┴─────────┘
+```
 
-To flash:
+### Layers at a Glance
+
+| Layer | Activation | Left Hand | Right Hand |
+|:------|:-----------|:----------|:-----------|
+| BASE | Default | QWERTY + home row mods | QWERTY + home row mods |
+| NAV | Hold `Space` | Mods | Vim arrows, clipboard, PgUp/PgDn, Home/End |
+| MOUSE | Hold `Tab` | Mods | Mouse move, scroll, L/M/R click |
+| MEDIA | Hold `Esc` | Mods | Prev/Next, Vol, Play/Stop, BT profiles |
+| NUM | Hold `Bspc` | `[ 7 8 9 ]`, `; 4 5 6 =`, `` ` 1 2 3 \ `` | Mods |
+| SYM | Hold `Enter` | `{ & * ( }`, `: $ % ^ +`, `~ ! @ # \|` | Mods |
+| FUN | Hold `Del` | F12-F1, PrtSc, ScrLk, Pause | Mods |
+
+### Home Row Mods
+
+```
+Left:   GUI / A    ALT / S    CTRL / D    SHFT / F
+Right:  SHFT / J   CTRL / K   ALT / L     GUI / '
+```
+
+| Setting | Value |
+|:--------|:------|
+| Flavor | tap-preferred |
+| Tapping term | 200 ms |
+| Quick tap | 175 ms |
+| Require prior idle | 150 ms |
+
+---
+
+## Hardware
+
+| | |
+|:--|:--|
+| **Keyboard** | [TOTEM](https://github.com/GEIGEIGEIST/TOTEM) — 38-key columnar stagger split |
+| **MCU** | Seeeduino XIAO BLE (nRF52840) |
+| **Firmware** | [ZMK](https://zmk.dev/) main branch (Zephyr 4.1) |
+| **Studio** | Enabled on left half — edit keymap live at [zmk.studio](https://zmk.studio/) |
+
+---
+
+## Getting the Firmware
+
+Firmware builds automatically via GitHub Actions on every push.
+
+1. Go to the [Actions](../../actions) tab
+2. Open the latest successful **Build ZMK firmware** run
+3. Download the `totem_left` and `totem_right` artifacts (`.uf2` files)
+
+### Flashing
+
 1. Double-tap the reset button on the XIAO BLE to enter bootloader mode
-2. Drag the `.uf2` file to the mounted drive
+2. A USB drive will appear — drag the `.uf2` file onto it
 3. Flash left half first (`totem_left`), then right (`totem_right`)
 
-## ZMK Studio
+### ZMK Studio (Live Editing)
 
-The left half is built with ZMK Studio support. Connect via USB and open [zmk.studio](https://zmk.studio/) to edit the keymap in real time.
+Connect the left half via USB, open [zmk.studio](https://zmk.studio/), and edit your keymap in real time — no reflashing needed.
 
-## Keymap Diagram Generation
+---
 
-Keymap SVG diagrams are auto-generated on every keymap change using [keymap-drawer](https://github.com/caksoylar/keymap-drawer) via GitHub Actions.
+## Repository Structure
+
+```
+├── config/
+│   ├── totem.keymap        # Keymap definition
+│   ├── totem.conf          # Firmware config options
+│   └── west.yml            # ZMK module manifest
+├── boards/shields/totem/   # Board shield definition
+├── keymap-drawer/          # Auto-generated keymap diagrams
+│   ├── config.yaml         # Diagram styling config
+│   ├── totem.yaml          # Parsed keymap data
+│   └── totem.svg           # Visual keymap diagram
+├── build.yaml              # GitHub Actions build matrix
+└── .github/workflows/
+    ├── build.yml            # Firmware build workflow
+    └── draw-keymaps.yml     # Keymap diagram generator
+```
+
+---
+
+## Credits
+
+- [TOTEM](https://github.com/GEIGEIGEIST/TOTEM) keyboard by GEIGEIGEIST
+- [Miryoku](https://github.com/manna-harbour/miryoku) layout by Manna Harbour
+- [ZMK Firmware](https://zmk.dev/)
+- [keymap-drawer](https://github.com/caksoylar/keymap-drawer) by caksoylar
