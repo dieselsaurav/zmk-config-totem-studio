@@ -22,6 +22,14 @@ This config follows the [Miryoku](https://github.com/manna-harbour/miryoku) layo
 - **Vim-style** navigation (HJKL arrows)
 - **6 thumb-activated layers** — no combos, no chords, just hold a thumb key
 - **Symmetric design** — left thumbs activate right-hand layers and vice versa
+- **Extra keys** — Ctrl/Esc (left) and Hyper (right) on the outer bottom row
+
+### Extra Keys
+
+| Position | Tap | Hold | Use Case |
+|:---------|:----|:-----|:---------|
+| Left outer | Esc | Ctrl | Vim escape + Ctrl shortcuts without leaving home row |
+| Right outer | — | Hyper (GUI+Alt+Ctrl+Shift) | Raycast/launcher shortcuts with a clean modifier namespace |
 
 ### Thumb Keys
 

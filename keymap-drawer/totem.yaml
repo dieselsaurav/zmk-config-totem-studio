@@ -21,7 +21,7 @@ layers:
   - {t: K, h: RCTRL}
   - {t: L, h: RALT}
   - {t: SQT, h: RGUI}
-  - ''
+  - {t: Esc, h: Ctrl}
   - Z
   - X
   - C
@@ -32,7 +32,7 @@ layers:
   - COMMA
   - DOT
   - FSLH
-  - ''
+  - Hyper
   - {t: ESC, h: MEDIA}
   - {t: SPACE, h: NAV}
   - {t: TAB, h: MOUSE}
@@ -60,7 +60,7 @@ layers:
   - UP
   - RIGHT
   - CAPS
-  - ''
+  - {t: Esc, h: Ctrl}
   - ''
   - ''
   - ''
@@ -71,7 +71,7 @@ layers:
   - PG DN
   - PG UP
   - END
-  - ''
+  - Hyper
   - ''
   - {type: held}
   - ''
@@ -99,7 +99,7 @@ layers:
   - RCTRL
   - RALT
   - RGUI
-  - ''
+  - {t: Esc, h: Ctrl}
   - GRAVE
   - '1'
   - '2'
@@ -110,7 +110,7 @@ layers:
   - ''
   - ''
   - ''
-  - ''
+  - Hyper
   - DOT
   - '0'
   - MINUS
@@ -138,7 +138,7 @@ layers:
   - VOL UP
   - NEXT
   - ''
-  - ''
+  - {t: Esc, h: Ctrl}
   - ''
   - ''
   - ''
@@ -149,7 +149,7 @@ layers:
   - {t: BT, h: '2'}
   - {t: BT, h: '3'}
   - BT CLR
-  - ''
+  - Hyper
   - {type: held}
   - ''
   - ''
@@ -177,7 +177,7 @@ layers:
   - RCTRL
   - RALT
   - RGUI
-  - ''
+  - {t: Esc, h: Ctrl}
   - TILDE
   - EXCL
   - AT
@@ -188,7 +188,7 @@ layers:
   - ''
   - ''
   - ''
-  - ''
+  - Hyper
   - LPAR
   - RPAR
   - UNDER
@@ -216,7 +216,7 @@ layers:
   - RCTRL
   - RALT
   - RGUI
-  - ''
+  - {t: Esc, h: Ctrl}
   - F10
   - F1
   - F2
@@ -227,7 +227,7 @@ layers:
   - ''
   - ''
   - ''
-  - ''
+  - Hyper
   - APP
   - SPACE
   - TAB
@@ -255,7 +255,7 @@ layers:
   - ↑ Move
   - → Move
   - ''
-  - ''
+  - {t: Esc, h: Ctrl}
   - ''
   - ''
   - ''
@@ -266,7 +266,7 @@ layers:
   - ↑ Scroll
   - → Scroll
   - ''
-  - ''
+  - Hyper
   - ''
   - ''
   - {type: held}

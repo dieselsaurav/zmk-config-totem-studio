@@ -30,6 +30,8 @@ parse_config:
     "&mkp LCLK": {tap: "L Click"}
     "&mkp RCLK": {tap: "R Click"}
     "&mkp MCLK": {tap: "M Click"}
+    "&hyper": {tap: "Hyper"}
+    "&mt LCTRL ESC": {tap: "Esc", hold: "Ctrl"}
   sticky_label: sticky
   toggle_label: toggle
   trans_legend:
