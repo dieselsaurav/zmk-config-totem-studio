@@ -2,7 +2,7 @@
 
 [![Build ZMK firmware](../../actions/workflows/build.yml/badge.svg)](../../actions/workflows/build.yml)
 
-> Miryoku-inspired ZMK configuration for the [TOTEM](https://github.com/GEIGEIGEIST/TOTEM) 38-key split keyboard, with [ZMK Studio](https://zmk.studio/) support for real-time keymap editing.
+> Miryoku-inspired ZMK configuration for the [TOTEM](https://github.com/GEIGEIGEIST/TOTEM) 38-key split keyboard. QWERTY base, vim-style navigation, home row mods, mouse keys, combos, and [ZMK Studio](https://zmk.studio/) support for real-time keymap editing.
 
 ---
 
@@ -20,16 +20,11 @@ This config follows the [Miryoku](https://github.com/manna-harbour/miryoku) layo
 
 - **QWERTY** base with **home row mods** (GACS order)
 - **Vim-style** navigation (HJKL arrows)
-- **6 thumb-activated layers** — no combos, no chords, just hold a thumb key
+- **6 thumb-activated layers** — hold a thumb key to access NAV, NUM, SYM, MEDIA, FUN, or MOUSE
 - **Symmetric design** — left thumbs activate right-hand layers and vice versa
-- **Extra keys** — Ctrl/Esc (left) and Hyper (right) on the outer bottom row
-
-### Extra Keys
-
-| Position | Tap | Hold | Use Case |
-|:---------|:----|:-----|:---------|
-| Left outer | Esc | Ctrl | Vim escape + Ctrl shortcuts without leaving home row |
-| Right outer | — | Hyper (GUI+Alt+Ctrl+Shift) | Raycast/launcher shortcuts with a clean modifier namespace |
+- **Mouse keys** — full mouse emulation (movement, scroll, click) on the MOUSE layer
+- **14 combos** — Caps Word, Esc, Bspc, Tab, Enter, clipboard, and vertical symbol combos
+- **Extra keys** — Ctrl/Esc (left) and Hyper (right) on the outer pinky positions
 
 ### Thumb Keys
 
@@ -40,17 +35,45 @@ Left hand                          Right hand
 └───────────┴───────────┴────────┘ └─────────┴──────────┴─────────┘
 ```
 
-### Layers at a Glance
+### Extra Keys
+
+| Position | Tap | Hold | Use Case |
+|:---------|:----|:-----|:---------|
+| Left outer | Esc | Ctrl | Vim escape + Ctrl shortcuts without leaving home row |
+| Right outer | — | Hyper (GUI+Alt+Ctrl+Shift) | Launcher shortcuts (Raycast, Alfred, etc.) with a clean modifier namespace |
+
+### Layers
 
 | Layer | Activation | Left Hand | Right Hand |
 |:------|:-----------|:----------|:-----------|
 | BASE | Default | QWERTY + home row mods | QWERTY + home row mods |
-| NAV | Hold `Space` | Mods | Vim arrows, clipboard, PgUp/PgDn, Home/End |
-| MOUSE | Hold `Tab` | Mods | Mouse move, scroll, L/M/R click |
-| MEDIA | Hold `Esc` | Mods | Prev/Next, Vol, Play/Stop, BT profiles |
+| NAV | Hold `Space` | Mods | Vim arrows (HJKL), Cmd clipboard, PgUp/PgDn, Home/End |
+| MOUSE | Hold `Tab` | Mods | Mouse movement (HJKL), scroll, L/M/R click |
+| MEDIA | Hold `Esc` | Mods | Prev/Next, Vol Up/Down, Play/Stop, BT profiles |
 | NUM | Hold `Bspc` | `[ 7 8 9 ]`, `; 4 5 6 =`, `` ` 1 2 3 \ `` | Mods |
 | SYM | Hold `Enter` | `{ & * ( }`, `: $ % ^ +`, `~ ! @ # \|` | Mods |
-| FUN | Hold `Del` | F12-F1, PrtSc, ScrLk, Pause | Mods |
+| FUN | Hold `Del` | F12-F1, PrtSc, ScrLk, Pause/Break | Mods |
+
+### Combos
+
+| Combo | Keys | Output | Type |
+|:------|:-----|:-------|:-----|
+| W + E | top left | Escape | Horizontal |
+| I + O | top right | Backspace | Horizontal |
+| O + P | top right | Delete | Horizontal |
+| F + J | index home | Caps Word | Horizontal |
+| S + D | home left | Tab | Horizontal |
+| K + L | home right | Enter | Horizontal |
+| X + C | bottom left | Cmd+C (Copy) | Horizontal |
+| C + V | bottom left | Cmd+V (Paste) | Horizontal |
+| X + V | bottom left | Cmd+X (Cut) | Horizontal |
+| J + M | right index | `-` (minus) | Vertical |
+| H + N | right inner | `_` (underscore) | Vertical |
+| F + V | left index | `=` (equal) | Vertical |
+| S + X | left ring | `` ` `` (grave) | Vertical |
+| L + ' | right outer | `;` (semicolon) | Horizontal |
+
+All combos use `require-prior-idle-ms` to prevent misfires during fast typing.
 
 ### Home Row Mods
 
@@ -75,7 +98,7 @@ Right:  SHFT / J   CTRL / K   ALT / L     GUI / '
 | **Keyboard** | [TOTEM](https://github.com/GEIGEIGEIST/TOTEM) — 38-key columnar stagger split |
 | **MCU** | Seeeduino XIAO BLE (nRF52840) |
 | **Firmware** | [ZMK](https://zmk.dev/) main branch (Zephyr 4.1) |
-| **Studio** | Enabled on left half — edit keymap live at [zmk.studio](https://zmk.studio/) |
+| **Features** | Mouse keys, ZMK Studio, Bluetooth |
 
 ---
 
@@ -149,16 +172,27 @@ Studio support is configured in `build.yaml` for the left half:
 
 ---
 
+## Firmware Config
+
+Key settings in `config/totem.conf`:
+
+| Setting | Value | Purpose |
+|:--------|:------|:--------|
+| `CONFIG_ZMK_MOUSE` | `y` | Enable mouse key emulation (movement, scroll, click) |
+| `CONFIG_ZMK_USB_LOGGING` | `n` | Disable USB logging for production use |
+
+---
+
 ## Repository Structure
 
 ```
 ├── config/
-│   ├── totem.keymap        # Keymap definition
-│   ├── totem.conf          # Firmware config options
-│   └── west.yml            # ZMK module manifest
-├── boards/shields/totem/   # Board shield definition
+│   ├── totem.keymap        # Keymap definition (layers, combos, macros)
+│   ├── totem.conf          # Firmware config (mouse keys, logging)
+│   └── west.yml            # ZMK module manifest (main branch)
+├── boards/shields/totem/   # Board shield definition (matrix, pins, layout)
 ├── keymap-drawer/          # Auto-generated keymap diagrams
-│   ├── config.yaml         # Diagram styling config
+│   ├── config.yaml         # Diagram styling + mouse key labels
 │   ├── totem.yaml          # Parsed keymap data
 │   └── totem.svg           # Visual keymap diagram
 ├── build.yaml              # GitHub Actions build matrix
@@ -175,3 +209,4 @@ Studio support is configured in `build.yaml` for the left half:
 - [Miryoku](https://github.com/manna-harbour/miryoku) layout by Manna Harbour
 - [ZMK Firmware](https://zmk.dev/)
 - [keymap-drawer](https://github.com/caksoylar/keymap-drawer) by caksoylar
+- [urob/zmk-config](https://github.com/urob/zmk-config) — combo and home row mod tuning reference
