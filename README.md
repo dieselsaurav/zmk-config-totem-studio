@@ -85,9 +85,59 @@ Firmware builds automatically via GitHub Actions on every push.
 2. A USB drive will appear — drag the `.uf2` file onto it
 3. Flash left half first (`totem_left`), then right (`totem_right`)
 
-### ZMK Studio (Live Editing)
+---
 
-Connect the left half via USB, open [zmk.studio](https://zmk.studio/), and edit your keymap in real time — no reflashing needed.
+## ZMK Studio
+
+[ZMK Studio](https://zmk.studio/) lets you edit your keymap in real time through a browser — no reflashing, no rebuilding, no code.
+
+### What You Can Do
+
+- Remap any key on any layer
+- Add, remove, or reorder layers
+- Configure hold-tap behaviors
+- Test changes instantly — they apply the moment you make them
+- Save layouts that persist across reboots
+
+### How to Connect
+
+1. **Plug in the left half** via USB (Studio is only enabled on the left half)
+2. Open [zmk.studio](https://zmk.studio/) in a WebUSB-compatible browser (Chrome, Edge, or Brave)
+3. Click **Connect** and select your TOTEM from the device list
+4. Your current keymap loads automatically — start editing
+
+### How It Works
+
+- Changes apply **instantly** to the keyboard — no compile or flash step
+- Edits are saved to the keyboard's **onboard flash**, so they survive reboots and unplugging
+- The `.keymap` file in this repo is the **default layout** — Studio overrides sit on top of it
+- To reset back to the defaults from this repo, use the **Restore Stock Settings** option in Studio
+
+### Connecting via Bluetooth
+
+You can also connect to Studio over BLE:
+
+1. Make sure the left half is **not** plugged in via USB
+2. Open [zmk.studio](https://zmk.studio/) and click **Connect via Bluetooth**
+3. Pair with the TOTEM if prompted
+4. Edit your keymap wirelessly
+
+> **Note:** WebBluetooth support varies by OS. Chrome on macOS/Linux works best. Windows may require flags.
+
+### Build Config
+
+Studio support is configured in `build.yaml` for the left half:
+
+```yaml
+- board: xiao_ble//zmk
+  shield: totem_left
+  snippet: studio-rpc-usb-uart
+  cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
+```
+
+- `CONFIG_ZMK_STUDIO=y` — enables the Studio RPC endpoint
+- `CONFIG_ZMK_STUDIO_LOCKING=n` — disables the security lock so you don't need to confirm on the keyboard each time
+- `snippet: studio-rpc-usb-uart` — routes Studio communication over USB serial
 
 ---
 
