@@ -1,0 +1,25 @@
+draw_config:
+  key_w: 60
+  key_h: 56
+  split_gap: 30
+  combo_w: 26
+  combo_h: 22
+  key_rx: 6
+  key_ry: 6
+  n_columns: 1
+  separate_combo_diagrams: false
+  svg_extra_style: |
+    svg {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+    }
+    rect.held {
+      fill: #ffc;
+    }
+parse_config:
+  zmk_keycode_map: {}
+  sticky_label: sticky
+  toggle_label: toggle
+  trans_legend:
+    tap: "▽"
+    type: trans

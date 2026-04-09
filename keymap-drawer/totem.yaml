@@ -1,0 +1,275 @@
+layout: {zmk_keyboard: totem}
+layers:
+  BASE:
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - {t: A, h: LGUI}
+  - {t: S, h: LALT}
+  - {t: D, h: LCTRL}
+  - {t: F, h: LSHFT}
+  - G
+  - H
+  - {t: J, h: RSHFT}
+  - {t: K, h: RCTRL}
+  - {t: L, h: RALT}
+  - {t: SQT, h: RGUI}
+  - ''
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - N
+  - M
+  - COMMA
+  - DOT
+  - FSLH
+  - ''
+  - {t: ESC, h: MEDIA}
+  - {t: SPACE, h: NAV}
+  - {t: TAB, h: MOUSE}
+  - {t: RET, h: SYM}
+  - {t: BSPC, h: NUM}
+  - {t: DEL, h: FUN}
+  NAV:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - REDO
+  - PASTE
+  - COPY
+  - CUT
+  - UNDO
+  - LGUI
+  - LALT
+  - LCTRL
+  - LSHFT
+  - ''
+  - LEFT
+  - DOWN
+  - UP
+  - RIGHT
+  - CAPS
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - INS
+  - HOME
+  - PG DN
+  - PG UP
+  - END
+  - ''
+  - ''
+  - {type: held}
+  - ''
+  - RET
+  - BSPC
+  - DEL
+  NUM:
+  - LBKT
+  - '7'
+  - '8'
+  - '9'
+  - RBKT
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - SEMI
+  - '4'
+  - '5'
+  - '6'
+  - EQUAL
+  - ''
+  - RSHFT
+  - RCTRL
+  - RALT
+  - RGUI
+  - ''
+  - GRAVE
+  - '1'
+  - '2'
+  - '3'
+  - BSLH
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - DOT
+  - '0'
+  - MINUS
+  - ''
+  - {type: held}
+  - ''
+  MEDIA:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - LGUI
+  - LALT
+  - LCTRL
+  - LSHFT
+  - ''
+  - PREV
+  - VOL DN
+  - VOL UP
+  - NEXT
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: BT, h: '0'}
+  - {t: BT, h: '1'}
+  - {t: BT, h: '2'}
+  - {t: BT, h: '3'}
+  - BT CLR
+  - ''
+  - {type: held}
+  - ''
+  - ''
+  - STOP
+  - PP
+  - MUTE
+  SYM:
+  - LBRC
+  - AMPS
+  - ASTRK
+  - LPAR
+  - RBRC
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - COLON
+  - DLLR
+  - PRCNT
+  - CARET
+  - PLUS
+  - ''
+  - RSHFT
+  - RCTRL
+  - RALT
+  - RGUI
+  - ''
+  - TILDE
+  - EXCL
+  - AT
+  - HASH
+  - PIPE
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - LPAR
+  - RPAR
+  - UNDER
+  - {type: held}
+  - ''
+  - ''
+  FUN:
+  - F12
+  - F7
+  - F8
+  - F9
+  - PSCRN
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - F11
+  - F4
+  - F5
+  - F6
+  - SLCK
+  - ''
+  - RSHFT
+  - RCTRL
+  - RALT
+  - RGUI
+  - ''
+  - F10
+  - F1
+  - F2
+  - F3
+  - PAUSE BREAK
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - APP
+  - SPACE
+  - TAB
+  - ''
+  - ''
+  - {type: held}
+  MOUSE:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - LGUI
+  - LALT
+  - LCTRL
+  - LSHFT
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {type: held}
+  - ''
+  - ''
+  - ''
