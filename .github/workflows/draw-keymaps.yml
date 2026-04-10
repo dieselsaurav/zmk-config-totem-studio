@@ -23,7 +23,7 @@ jobs:
         run: |
           mkdir -p keymap-drawer
           keymap -c keymap-drawer/config.yaml parse -z config/totem.keymap > keymap-drawer/totem.yaml
-          keymap -c keymap-drawer/config.yaml draw keymap-drawer/totem.yaml > keymap-drawer/totem.svg
+          keymap -c keymap-drawer/config.yaml draw -d boards/shields/totem/totem-layouts.dtsi keymap-drawer/totem.yaml > keymap-drawer/totem.svg
 
       - name: Commit SVG
         run: |
